@@ -25,6 +25,13 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/src/components/**/*.{ts, tsx}",
+      "!**/node_modules/**",
+      "!**/*.stories.{ts.tsx}"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
