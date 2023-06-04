@@ -1,27 +1,30 @@
-import React from "react";
-import styled from "styled-components";
-
-interface ButtonProps {
-  clickHandler: () => void;
-  buttonText: string;
+export interface ButtonProps {
+  clickHandler?: () => void;
+  label?: string;
+  size?: "sm" | "md" | "lg";
+  backgroundColor?: string;
+  color?: string;
 }
 
-interface StyledButtonProps {
-  backgroundColor: string;
-  color: string;
-}
+function CustomButton({ label, backgroundColor = "black", size = "md", color = "white", clickHandler }: ButtonProps) {
+  const sizeScale = {
+    sm: 0.75,
+    md: 1,
+    lg: 1.5,
+  };
 
-const StyledButton = styled.button<StyledButtonProps>`
-  background-color: ${(props) => props.backgroundColor || "blue"};
-  color: ${(props) => props.color};
-  border: none;
-`;
+  let scale = sizeScale[size];
 
-function CustomButton({ buttonText, backgroundColor, color, clickHandler }: ButtonProps & StyledButtonProps) {
+  const style = {
+    backgroundColor,
+    padding: `${scale * 0.5}rem ${scale * 1}rem`,
+    border: "none",
+    color,
+  };
   return (
-    <StyledButton onClick={clickHandler} backgroundColor={backgroundColor} color={color}>
-      {buttonText}
-    </StyledButton>
+    <button onClick={clickHandler} style={style}>
+      {label}
+    </button>
   );
 }
 
