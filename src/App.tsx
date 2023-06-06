@@ -2,7 +2,7 @@ import React from "react";
 import CustomButton from "./components/CustomButton";
 import CustomProgressBar from "./components/CustomProgressBar";
 import styled from "styled-components";
-import Gallery from "./pages/Gallery";
+import Gallery from "./components/Gallery";
 
 function App() {
   const handleClick = () => {

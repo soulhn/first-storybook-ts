@@ -19,7 +19,7 @@ export default function Gallery() {
   };
 
   return (
-    <div>
+    <GalleyContainer>
       <Header>
         <h1>갤러리</h1>
         <div>
@@ -42,9 +42,13 @@ export default function Gallery() {
             <Image key={i} src={train} alt={`gallery image${i}`} />
           ))}
       </ImageContainer>
-    </div>
+    </GalleyContainer>
   );
 }
+
+const GalleyContainer = styled.div`
+  border: 2px solid black;
+`;
 
 const ImageContainer = styled.div<ImageContainerProps>`
   display: grid;
@@ -58,17 +62,11 @@ const ImageContainer = styled.div<ImageContainerProps>`
 const Header = styled.div`
   text-align: center;
   margin: 30px 0;
-
-  > h1 {
-    text-align: "center";
-  }
 `;
 
 const Label = styled.label`
-  background-color: #fff4e6;
-  border: 2px solid #f76707;
+  border: 2px solid black;
   font-size: 20px;
-  float: left;
   margin-right: 10px;
 `;
 
@@ -76,7 +74,6 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin-bottom: 10px;
 `;
 
@@ -88,5 +85,5 @@ const Input = styled.input`
 const Image = styled.img`
   width: 100%;
   height: 200px;
-  border: 2px solid #ffa94d;
+  border: 2px solid black;
 `;
